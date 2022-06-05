@@ -30,13 +30,13 @@ describe('varisous type instant_transform', () => {
 
   test('valid:{name,age}', () => {
     const target = {
-      name: 'yuya',
+      name: 'bomb',
       age: 25,
       memo: {},
     };
     const transformed = instant_validate_transform(person_obstract, target);
     expect(transformed).toEqual({
-      name: 'yuya',
+      name: 'bomb',
       age: 25,
       living: true,
       memo: {},

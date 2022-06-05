@@ -25,20 +25,20 @@ describe('standart obstract.transform', () => {
   });
 
   test('valid:{name,age}', () => {
-    const target = { name: 'yuya', age: 2 };
+    const target = { name: 'bomb', age: 2 };
     if (obstractor.validate(target)) {
       const transformed = obstractor.transform(target);
-      expect(target).toEqual({ name: 'yuya', age: 2 });
-      expect(transformed).toEqual({ name: 'yuya', age: 2 });
+      expect(target).toEqual({ name: 'bomb', age: 2 });
+      expect(transformed).toEqual({ name: 'bomb', age: 2 });
     }
   });
 
   test('valid:{name}', () => {
-    const target = { name: 'yuya' };
+    const target = { name: 'bomb' };
     if (obstractor.validate(target)) {
       const transformed = obstractor.transform(target);
-      expect(target).toEqual({ name: 'yuya' });
-      expect(transformed).toEqual({ name: 'yuya', age: 0 });
+      expect(target).toEqual({ name: 'bomb' });
+      expect(transformed).toEqual({ name: 'bomb', age: 0 });
     }
   });
 });
@@ -55,38 +55,38 @@ describe('instant transform', () => {
   };
 
   test('valid:{name,age}', () => {
-    const target = { name: 'yuya', age: 25 };
+    const target = { name: 'bomb', age: 25 };
     const is_valid = instant_validate(person_obstract, target);
     expect(is_valid).toBe(true);
   });
 
   test('valid:{name}', () => {
-    const target = { name: 'yuya' };
+    const target = { name: 'bomb' };
     const transformed = instant_validate_transform<Person>(
       person_obstract,
       target
     );
-    expect(target).toEqual({ name: 'yuya' });
-    expect(transformed).toEqual({ name: 'yuya', age: 0 });
+    expect(target).toEqual({ name: 'bomb' });
+    expect(transformed).toEqual({ name: 'bomb', age: 0 });
   });
 
   test('valid:{name},invalid:{age}', () => {
-    const target = { name: 'yuya', age: -1 };
+    const target = { name: 'bomb', age: -1 };
     const transformed = instant_validate_transform<Person>(
       person_obstract,
       target
     );
-    expect(target).toEqual({ name: 'yuya', age: -1 });
+    expect(target).toEqual({ name: 'bomb', age: -1 });
     expect(transformed).toEqual(undefined);
   });
 
   test('valid:{name},invalid:{age}', () => {
-    const target = { name: 'yuya', age: '0' };
+    const target = { name: 'bomb', age: '0' };
     const transformed = instant_validate_transform<Person>(
       person_obstract,
       target
     );
-    expect(target).toEqual({ name: 'yuya', age: '0' });
+    expect(target).toEqual({ name: 'bomb', age: '0' });
     expect(transformed).toEqual(undefined);
   });
 });
