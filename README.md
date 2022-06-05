@@ -20,14 +20,14 @@ const obstractor = new Obstractor<Person>(person_obstract, {
 });
 
 const target_with_age = { name: 'bomb', age: 2 };
-const is_valid = obstractor.validate(target);
+const is_valid = obstractor.validate(target_with_age);
 
 const target_without_age = { name: 'bomb' };
-const is_valid = obstractor.validate(target);
+const is_valid = obstractor.validate(target_without_age);
 // ok because "age" is nullable
 
 if (is_valid) {
-  const transformed = obstractor.transform(target);
+  const transformed = obstractor.transform(target_with_age);
   // set default value(0) on "age"
   // {name: "bomb", age: 0}
 }
