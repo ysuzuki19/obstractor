@@ -3,6 +3,8 @@
 ## Basic Usage
 
 ```typescript
+import { Obstract, Obstractor } from '../index';
+
 interface Person {
   name: string;
   age: number;
@@ -70,7 +72,7 @@ if (is_valid) {
 
 ## Instant Use
 
-You can call this class-api more instantly.
+You can call abstractor-api more instantly.
 
 ```typescript
 const is_valid = instant_validate(obstract, target);
