@@ -11,7 +11,7 @@ interface Person {
 }
 
 const person_obstract: Obstract = {
-  name: { type: 'string', nullable: false },
+  name: { type: 'string' },
   age: { type: 'number', nullable: true, default: 0 },
 };
 
