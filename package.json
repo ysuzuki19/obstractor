@@ -1,7 +1,7 @@
 {
-  "name": "npm-package-template",
+  "name": "obstractor",
   "version": "1.0.0",
-  "description": "template repository for npm package",
+  "description": "typescript library for validate and transform object",
   "main": "./dist/index.umd.min.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
@@ -15,21 +15,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ysuzuki19/npm-package-template.git"
+    "url": "git+https://github.com/ysuzuki19/obstractor.git"
   },
   "keywords": [
     "typescript",
-    "npm",
-    "package",
-    "rollup",
-    "template"
+    "object",
+    "validate",
+    "transform"
   ],
   "author": "ysuzuki19 (https://ysuzuki19.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ysuzuki19/npm-package-template/issues"
+    "url": "https://github.com/ysuzuki19/obstractor/issues"
   },
-  "homepage": "https://github.com/ysuzuki19/npm-package-template#readme",
+  "homepage": "https://github.com/ysuzuki19/obstractor#readme",
   "devDependencies": {
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-typescript": "^8.3.0",
