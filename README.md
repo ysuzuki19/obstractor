@@ -3,7 +3,7 @@
 ## Basic Usage
 
 ```typescript
-import { Obstract, Obstractor } from '../index';
+import { Obstract, Obstractor } from 'obstractor';
 
 interface Person {
   name: string;
