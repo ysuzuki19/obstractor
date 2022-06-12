@@ -1,6 +1,6 @@
 {
   "name": "obstractor",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "typescript library for validate and transform object",
   "main": "./dist/index.umd.min.js",
   "module": "./dist/index.es.js",
