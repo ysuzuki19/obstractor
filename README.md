@@ -1,4 +1,4 @@
-# TypeScript library for validate and transform object
+# validate and transform library for Object
 
 ## Basic Usage
 
