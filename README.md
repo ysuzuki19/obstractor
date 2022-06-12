@@ -37,7 +37,25 @@ if (is_valid) {
 
 `string`, `number`, `object`, `boolean`
 
-## Advanced (Functional Condition)
+## Instant Use
+
+You can call abstractor-api more instantly.
+
+```typescript
+const is_valid = instant_validate(obstract, target);
+// return valid_or_not
+
+const transformed = instant_transform(obstract, valid_target);
+// return transformed from validated target
+
+const transformed = instant_validate_transform(obstract, target);
+// return transformed if valid
+// return undefined if invalid
+```
+
+## Advanced
+
+### Functional Condition
 
 You can add condition by using function
 
@@ -70,18 +88,60 @@ if (is_valid) {
 }
 ```
 
-## Instant Use
-
-You can call abstractor-api more instantly.
+### Nested Obstract
 
 ```typescript
-const is_valid = instant_validate(obstract, target);
-// return valid_or_not
+import { instant_validate, Obstract } from 'obstractor';
 
-const transformed = instant_transform(obstract, valid_target);
-// return transformed from validated target
+interface Body {
+  height: number;
+  weight: number;
+  foot?: number;
+}
 
-const transformed = instant_validate_transform(obstract, target);
-// return transformed if valid
-// return undefined if invalid
+const body_obstract: Obstract = {
+  height: {
+    type: 'number',
+    validate: (input: number) => [0 < input, 'over-zero'],
+  },
+  weight: {
+    type: 'number',
+    validate: (input: number) => [0 < input, 'over-zero'],
+  },
+  foot: {
+    type: 'number',
+    nullable: true,
+  },
+};
+
+interface Person {
+  name: string;
+  age: number;
+  body: Body;
+}
+
+const person_obstract: Obstract = {
+  name: {
+    type: 'string',
+    validate: (input: string) => [0 < input.length, 'non-empty'],
+    nullable: false,
+  },
+  body: {
+    type: 'object',
+    validate: (input: object) => [
+      instant_validate<Body>(body_obstract, input),
+      'body',
+    ],
+  },
+};
+
+const target = {
+  name: 'bomb',
+  body: {
+    height: 170,
+    weight: 60,
+  },
+};
+const is_valid = instant_validate<Person>(person_obstract, target);
+// is true
 ```
